@@ -1,5 +1,5 @@
 import { Satellite } from './satellite';
-import { Component } from '@angular/core'; //WTF IS THIS???
+import { Component } from '@angular/core'; 
 
 
 @Component({
