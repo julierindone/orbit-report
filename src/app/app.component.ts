@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { Satellite } from './satellite';
+import { Component } from '@angular/core'; //WTF IS THIS???
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { Satellite } from './satellite';
 })
 export class AppComponent {
   title = 'orbit-report';
+
+ 
+  sourceList: Satellite[];
+
 
   constructor() {
     this.sourceList = [
@@ -19,3 +24,4 @@ export class AppComponent {
    ];
   }
 }
+
