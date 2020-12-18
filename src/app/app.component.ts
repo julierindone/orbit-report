@@ -11,23 +11,29 @@ export class AppComponent {
   title = 'orbit-report';
   sourceList: Satellite[];
 
-
   constructor(){
-    this.sourceList = [];
-    //this is where it starts to differ from the earlier version.
+    this.sourceList = [];  
     let satellitesURL = 'https://handlers.education.launchcode.org/static/satellites.json';
-
     window.fetch(satellitesURL).then(function(response) {
-      response.json().then(function(data){
-
+    response.json().then(function(data){
+   
     let fetchedSatellites = data.satellites;
+
             
         for (let i = 0; i < fetchedSatellites.length; i++) {
+          let satellite = {}                                   
 
-          //this.sourceList.push(satellite) = [
-          //  new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-          return console.log(fetchedSatellites[i].name)
-          //]
+            satellite = new Satellite (
+            fetchedSatellites[i].name, 
+            fetchedSatellites[i].type, 
+            fetchedSatellites[i].launchDate, 
+            fetchedSatellites[i].orbitType, 
+            fetchedSatellites[i].operational
+          )   
+
+
+        this.sourceList.push(satellite);
+
         }
         }.bind(this));    
     }.bind(this));
@@ -35,12 +41,6 @@ export class AppComponent {
 }
 
 
-          //DONE////// TODO: loop over satellites
-
-         // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-         // TODO: add the new Satellite object to sourceList using: this.sourceList.push(satellite);
-      //console.log(fetchedSatellites)
-      //console.log(fetchedSatellites[0])
 
 
 
